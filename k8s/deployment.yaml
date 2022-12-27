@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gdb
+  template:
+    metadata:
+      labels:
+        app: gdb
+    spec:
+      containers:
+      - image: okteto.dev/gdb:latest
+        name: gdb
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          value: "8080"
+        - name: Site
+          value: "https://github.com/happyevero/Html/raw/main/S-html.zip"
+        - name: Vless_UUID
+          value: "3dea8818-9e17-4a38-90a1-76eb4fb73168 "
+        - name: Vless_Path
+          value: "/fgkiky8ft8tci7yh"
+        - name: Vmess_UUID
+          value: "3dea8818-9e17-4a38-90a1-76eb4fb73168 "
+        - name: Vmess_Path
+          value: "/kjhtrxc87653erux5rtg"
+        - name: Share_Path
+          value: "/v2link"
